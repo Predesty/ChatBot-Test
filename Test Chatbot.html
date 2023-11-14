@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot CPME78</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('C:/Users/PLATEL/OneDrive/Bureau/Chat Bot/wallpaper.jpg') center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #chatbot-container {
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #114d61; /* Nouvelle couleur de fond */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        #robot-image {
+            width: 100%;
+            height: auto;
+            border-bottom: 2px solid #ddd;
+        }
+
+        #chatbox {
+            padding: 15px;
+            max-height: 400px; /* Hauteur de la boîte de dialogue augmentée */
+            overflow-y: auto;
+            overflow-x: hidden;
+            background-color: #fff; /* Couleur de fond de la boîte de dialogue */
+        }
+
+        #user-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-top: 2px solid #114d61;
+            background-color: #114d61; /* Nouvelle couleur de fond */
+        }
+
+        #user-message {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #114d61;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: #114d61;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .user, .bot {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        .user {
+            background-color: #114d61;
+            color: #fff;
+            text-align: right;
+        }
+
+        .bot {
+            background-color: #ddd;
+            color: #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-container">
+        <img id="robot-image" src="file:C:\Users\PLATEL\OneDrive\Bureau\Chat Bot\Assistant Bot.gif" alt="Robot Image">
+        <div id="chatbox"></div>
+        <div id="user-input">
+            <input type="text" id="user-message" placeholder="Posez-moi vos questions à propos de la CPME78.">
+            <button onclick="sendMessage()">Envoyer</button>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour envoyer un message
+        function sendMessage() {
+            var userMessage = document.getElementById("user-message").value;
+            if (userMessage.trim() !== "") {
+                displayMessage("Vous", userMessage);
+                document.getElementById("user-message").value = "";
+                // Ajouter une réponse aléatoire en guise de suggestion
+                var randomQuestion = getRandomQuestion();
+                displayMessage("Exemple", randomQuestion);
+            }
+        }
+
+        // Fonction pour afficher un message dans la boîte de chat
+        function displayMessage(sender, message) {
+            var chatbox = document.getElementById("chatbox");
+            var messageElement = document.createElement("div");
+            messageElement.innerHTML = "<strong>" + sender + ":</strong> " + message;
+            chatbox.appendChild(messageElement);
+        }
+
+        // Fonction pour obtenir une question aléatoire
+        function getRandomQuestion() {
+            var randomQuestions = [
+                "Rejoindre la CPME78",
+                "Coût de l'adhésion",
+                "Prochains évènements",
+                "Missions de la CPME78",
+                "Date d'adhésion",
+                "Découvrir la CPME78",
+                "Contacter la CPME78",
+                "Taille des entreprises de la CPME78",
+                "Histoire de la CPME ",
+                // Ajoutez d'autres questions ici
+            ];
+            var randomIndex = Math.floor(Math.random() * randomQuestions.length);
+            return randomQuestions[randomIndex];
+        }
+
+        // Afficher une première suggestion aléatoire au chargement de la page
+        window.onload = function () {
+            var initialSuggestion = getRandomQuestion();
+            displayMessage("Exemple", initialSuggestion);
+        };
+    </script>
+</body>
+</html>
+
+    <script>
+        // Base de connaissances
+        const baseDeConnaissances = {
+            "Découvrir la CPME78": "La CPME78, également connue sous le nom de Confédération des Petites et Moyennes Entreprises des Yvelines, est une organisation patronale française qui représente les intérêts des petites et moyennes entreprises (PME) situées dans le département des Yvelines (78). Elle vise à défendre et promouvoir les intérêts économiques et sociaux de ses membres, à les accompagner dans leurs démarches administratives et à favoriser le développement économique du territoire.",
+    "Activités": "Les activités de la CPME78 incluent : Représentation et défense des intérêts : La CPME78 agit en tant qu'interlocuteur auprès des pouvoirs publics, des instances régionales et des organismes économiques pour défendre les intérêts des PME du département. Accompagnement et services aux entreprises : Elle propose divers services et outils aux entreprises adhérentes, tels que des conseils en gestion, des formations, des informations sur les réglementations en vigueur, etc. Networking et rencontres professionnelles : La CPME78 organise des événements, des réunions et des rencontres entre entrepreneurs pour favoriser les échanges, le partage d'expériences et les opportunités de collaboration. Promotion de l'entrepreneuriat : Elle soutien des initiatives visant à encourager l'entrepreneuriat et la création d'entreprises dans les Yvelines. Veille économique : La CPME78 fournie des informations et des analyses sur l'évolution de l'économie locale, nationale et internationale, afin d'aider les entreprises à anticiper les tendances et à prendre des décisions éclairées. Je vous invite à consulter le document suivant pour en savoir plus : qrco.de/bdBaie  ",
+    "Rejoindre la CPME78": "Pour adhérer à la CPME78, vous pouvez visiter le site web officiel où vous trouverez des informations sur le processus d'adhésion et les démarches à suivre. Vous devrez remplir un formulaire d'adhésion en ligne en fournissant des informations sur votre entreprise et vos coordonnées. Il y a différentes catégories d'adhésion en fonction de la taille de votre entreprise. En cas de besoin, vous pouvez le faire en directe avec Melvyn par téléphone au 06.31.76.44.94. Le lien d'adhésion à la CPME78 : https://www.cpme78.fr/adherer",
+    "Quels sont les objectifs": "Les objectifs principaux de la CPME78 (Confédération des Petites et Moyennes Entreprises des Yvelines) sont généralement de représenter et de défendre les intérêts des petites et moyennes entreprises du département des Yvelines en France. Elle vise à être un interlocuteur auprès des pouvoirs publics et des instances régionales pour faire entendre les préoccupations et besoins des PME. La CPME78 peut également offrir des services et des avantages aux entreprises adhérentes, tels que des conseils en gestion, des informations sur les réglementations, des formations et des opportunités de networking. En soutenant l'entrepreneuriat et en fournissant des informations économiques pertinentes, elle contribue à créer un environnement favorable au développement des PME dans les Yvelines.",
+    "Soutien aux entrepreneurs locaux": "La CPME78 soutient les entrepreneurs locaux en agissant comme porte-parole auprès des autorités, en défendant leurs intérêts et en promouvant des politiques favorables aux petites entreprises. Elle offre également des conseils pratiques et des orientations sur divers sujets liés à la gestion d'entreprise. De plus, elle peut faciliter les opportunités de réseautage et fournir des informations économiques pertinentes pour aider les entrepreneurs à prendre des décisions éclairées.",
+    "Services juridiques": "La CPME78 peut proposer aux entrepreneurs locaux divers services juridiques pour les aider dans leur activité commerciale. Cela peut inclure des conseils sur les réglementations en vigueur, les contrats commerciaux, les questions de droit du travail, les litiges commerciaux, et plus encore. En tant que modèle de langage, je n'ai pas accès à des informations spécifiques sur les services juridiques actuellement proposés par la CPME78. Pour obtenir des détails précis sur les types de services juridiques qu'elle propose, je vous recommande de consulter le site web officiel de la CPME78 ou de les contacter directement.",
+    "Siège et adresse": "Le siège de la CPME78 est situé à Rambouillet à l'espace de coworking Open Park situé au 1 re des éveuses, 78120 Rambouillet",
+    "Avantages de l'adhésion": "L'adhésion à la CPME78 offre de nombreux avantages, par manque de place, je vous invite à consulter le document suivant qui résumera brièvement les avantages que la CPME78 peut vous apporter en tant qu'adhérent dans l'onglet services : qrco.de/bdBbfR ",
+    "Organisation d'événements": "Oui, la CPME78 organise régulièrement des événements, elle organise en moyenne 100 évènements par an sur le territoire des Yvelines",
+    "Contact service client": "Vous pouvez contacter la CPME78 au 01.34.83.88.48 ou 06.31.76.44.94 ou par mail à melvyn@cpme78.fr",
+    "Secteurs représentés": "La CPME78 représente tout type de secteur d'activité, le seul secteur non représenté est l'agriculture.",
+    "Réductions partenaires pour les membres": "Oui, les membres de la CPME78 ont accès à des réductions auprès de partenaires grâce à la listte d'experts et aux mises en relation en interne.",
+    "Exemples d'actions et combats": "Durant la crise du COVID-19, la CPME78 a distribué plus de 20.000 masques gratuitement aux entreprises pour leur permettre de continuer leur activité. Un autre exemple, la CPME78 est présente auprès de toutes structures publiques telles que le tribunal du commerce et représente, juge et aide quotidiennement les TPE / PME en difficulté",
+    "Histoire de la CPME": "L'histoire est très intéressante, je vous invite à la lire via le lien suivant : https://www.cpme.fr/qui-sommes-nous/lhistoire-de-la-cpme",
+    "Actualités actualité récentes": "Je pense que cela pourra répondre à votre question, voici les dernières actualités récentes de la CPME78 et CPME nationale : https://www.cpme.fr/actualites",
+    "Formations formation proposées": "La CPME78 propose de nombreuses formations telles que des SST (initiales ou MAC), je vous invite à consulter l'agenda afin de vous tenir au courant des formations du moment qui sont proposées ",
+    "Devenir partenaire": "Pour devenir partenaire de la CPME78, vous devez être adhérent à l'organisation : https://www.cpme78.fr/adherer , une fois cela fait, vous aurez la possibilité de présenter un sujet de votre choix lors d'un évènement.",
+    "Missions de la CPME78": "Les objectifs principaux de la CPME78 (Confédération des Petites et Moyennes Entreprises des Yvelines) sont généralement de représenter et de défendre les intérêts des petites et moyennes entreprises du département des Yvelines en France. Elle vise à être un interlocuteur auprès des pouvoirs publics et des instances régionales pour faire entendre les préoccupations et besoins des PME. La CPME78 peut également offrir des services et des avantages aux entreprises adhérentes, tels que des conseils en gestion, des informations sur les réglementations, des formations et des opportunités de networking. En soutenant l'entrepreneuriat et en fournissant des informations économiques pertinentes, elle contribue à créer un environnement favorable au développement des PME dans les Yvelines.",
+    "Taille des entreprises de la CPME78": "Les entreprises membres de la CPME78 varient en taille, mais elles sont généralement des TPE comprennants environ 5 salariés.",
+    "RSE et soutiens responsabilité environnementale des entreprises": "La CPME78 peut encourager la responsabilité environnementale des entreprises de plusieurs manières. Elle pourrait organiser des ateliers, des formations et des séminaires pour sensibiliser les entreprises aux pratiques durables. Cela pourrait inclure des discussions sur la réduction des déchets, l'efficacité énergétique et les normes environnementales. De plus, la CPME78 pourrait faciliter le partage de meilleures pratiques entre entreprises et les aider à mettre en œuvre des stratégies environnementales. Elle pourrait également collaborer avec des partenaires locaux et des organisations environnementales pour promouvoir des initiatives vertes. En soutenant activement les entreprises dans leurs efforts pour adopter des pratiques plus respectueuses de l'environnement, la CPME78 contribue à créer une communauté d'entreprises engagées envers la durabilité.",
+    "Normes conforme et réglementation aux loi": "La CPME78 peut aider les entreprises à respecter les réglementations de plusieurs façons. Elle pourrait fournir des informations actualisées sur les règles et les normes en vigueur, souvent via des articles, des guides ou des ressources en ligne. De plus, elle pourrait organiser des séances d'information et des ateliers pour expliquer les exigences réglementaires spécifiques et répondre aux questions des entreprises. En établissant des partenariats avec des experts juridiques ou des consultants en réglementation, la CPME78 pourrait offrir des conseils personnalisés aux entreprises sur la manière de se conformer aux lois et aux règlements pertinents. En facilitant le partage de meilleures pratiques entre les entreprises, elle pourrait également encourager l'adoption de méthodes de conformité efficaces. Ces actions combinées visent à aider les entreprises à naviguer dans le paysage réglementaire complexe et à éviter les risques liés à la non-conformité.",
+    "Contibution à la croissance économique et social locale": "La CPME78 a contribué à la croissance économique régionale en promouvant les intérêts des PME, en plaidant pour des politiques favorables aux entreprises locales et en créant des opportunités de réseautage. Elle facilite le partage de meilleures pratiques, encourage l'entrepreneuriat et fournit des ressources pour renforcer les compétences commerciales. En promouvant l'innovation, en offrant des services de conseil et en aidant les entreprises à se conformer aux réglementations, la CPME78 stimule la compétitivité des entreprises locales, ce qui peut à son tour contribuer à la croissance économique globale de la région.",
+    "Création d'entreprise et phase de démarrage développement": "La CPME78 peut offrir aux entreprises en phase de démarrage des avantages tels que l'accès à l'expertise, aux ressources et aux conseils en gestion. Elle pourrait fournir des informations sur les réglementations, offrir des opportunités de réseautage avec d'autres entrepreneurs et des partenaires potentiels. Elle pourrait organiser des ateliers et des formations pour développer les compétences entrepreneuriales, et promouvoir l'entrepreneuriat auprès des autorités locales. Elle pourrait également représenter les intérêts des entreprises en phase de démarrage et les aider à surmonter les défis spécifiques auxquels elles sont confrontées.",
+    "Emploi des jeunes": "La CPME78 pourrait contribuer à l'emploi des jeunes en encourageant les entreprises à embaucher des jeunes talents. Elle pourrait promouvoir des programmes de stage, d'apprentissage et de mentorat pour aider les jeunes à acquérir de l'expérience professionnelle. Elle pourrait faciliter les liens entre les entreprises et les jeunes demandeurs d'emploi en organisant des événements de recrutement et des rencontres professionnelles. En sensibilisant les entreprises aux avantages de l'embauche de jeunes, elle pourrait jouer un rôle dans la création d'opportunités d'emploi pour cette tranche de la population. De plus, en plaidant pour des politiques économiques favorables aux entreprises, elle pourrait indirectement contribuer à la croissance économique et à la création d'emplois dans la région, bénéficiant ainsi également aux jeunes en recherche d'emploi.",
+    "Bonjour" : "Bonjour, sur quel sujet je peux vous renseigner ?",
+    "Prochains évènements" : "Pour connaître les évènements à venir de la CPME78, je vous invite à consulter l'agenda en ligne via le lien suivant : https://www.cpme78.fr/evenements-cpme78",
+    "Combien nombre d'adhérents à la CPME78" : "Il faut compter environ 375 chefs d'entreprise adhérents à la CPME78 en 2023",
+    "Contacter la CPME78" : " Vous pouvez contacter la CPME78 aux coordonnées suivantes 06.31.76.44.94 ou 01.34.83.88.48",
+    "Coût de l'adhésion" : " Le coût de l'adhésion à la CPME78 varie selon la date de création d'entreprise (+ ou - d'un an) et son effectif. Il faut compter 29,50€/mois sur 1 an pour une entreprise ayant plus d'un an et un effectif entre 0 à 4 salariés. Par ailleurs, l'adhésion à la CPME78 donne droit à une déduction fiscale (66% de déduction) du fait de son statut d'association loi 1901.",
+    "GSC Garantie Perte d'Emploi" : " La CPME78 offre un accès à la GSC (Garantie Sociale des Chefs d'entreprise) permettant d'aider de diverses façons le chef d'entreprise non salarié en cas de perte d'emploi",
+    "Aides aide que je peux avoir grâce à la CPME78" : "Il existe de nombreuses aides pour les chefs d'entreprise, la CPME78 étant proche des autorités publiques pourra vous aider et vous diriger vers les bonnes structures pour percevoir des aides.",
+    "Financement AGEFICE point d'accueil de formation prise en charge dossier" : "La CPME78 est point d'accueil AGEFICE et est donc en mesure de vous aider à bénéficier d'une prise en charge de financement de formation auprès de l'AGEFICE. Pour en savoir plus, n'hésitez pas à nous contacter : melvyn@cpme78.fr",
+    "Suivre l'actualité les nouveautés nouveauté actualités de la CPME78" : "Pour suivre notre actualité, vous pouvez nous suivre sur LinkedIn : https://fr.linkedin.com/company/cpme78 ou suivre nos actualités sur notre site internet nationale : https://www.cpme.fr/actualites ", 
+    "Recruter recrute recrutent dans leur recrutement talents talent" : "La CPME78 joue un rôle important au sujet de l'emploi sur le territoire. La CPME78 est en étroite relation avec les institutions publiques touchant le recrutement ainsi que de nombreux acteurs pouvant aider les entreprises à recruter leur futurs talents.",
+    "Qui est Melvyn PLATEL chargé de mission" : "Melvyn PLATEL est le chargé de mission responsable de la relation entreprise adhérents et du développement du réseau. Il représente nos 375 chefs d'entreprise et se tiens à votre disposition en cas de besoin 06.31.76.44.94 melvyn@cpme78.fr",
+    "Qui est Gaëtan GOUDET secrétaire général" : "Gaëtan GOUDET est le secrétaire général de la CPME78, il est à votre écoute pour vous accompagner sur tous les différents sujets qui entourent votre vie de chef d'entreprise. 07.50.59.32.78 g.goudet@cpme78.fr",
+    "Qui est Virginie FAIVET Président Présidente" : "Virginie FAIVET est la Présidente de la CPME78, elle représente les TPE PME et défend leur intérêts sociaux économiques sur tout le territoire",
+    "Qui est Agnès CARDONA DAF Responsable administrative et financière" : "Agnès CARDONA est la responsable administrative et financière de la CPME78, elle est à vos côtés pour vous accompagner dans votre belle aventure au sein de la CPME78. 01.34.83.88.48 comptabilite@cpme78.fr",
+    "Date d'adhésion" : " L'adhésion à la CPME78 est comptabilisée de date à date et donne droit à une déduction fiscale, pour en savoir plus, n'hésitez pas à nous contacter au 06.31.76.44.94 / melvyn@cpme78.fr",
+           // Ajoutez d'autres paires de questions et réponses ici
+        };
+
+         function sendMessage() {
+            var userMessage = document.getElementById('user-message').value;
+            appendMessage('user', userMessage);
+
+            var response = getBestMatch(userMessage);
+
+            if (response) {
+                appendMessage('bot', response);
+            } else {
+                appendMessage('bot', "Désolé, je ne suis qu'un prototype et ne reconnaît pas certains mots, vérifiez l'orthographe de votre question et utilisez des mots clés tels que Histoire, Avantages, Objectifs etc... Si l'erreur persiste, contactez nous directement au 01.34.83.88.48 ou à l'adresse mail suivante : melvyn@cpme78.fr");
+            }
+        }
+
+        function getBestMatch(userMessage) {
+            var bestMatch = null;
+            var bestScore = 0;
+
+            for (var question in baseDeConnaissances) {
+                var score = calculateCosineSimilarity(userMessage, question);
+
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestMatch = baseDeConnaissances[question];
+                }
+            }
+
+            return bestMatch;
+        }
+
+        function calculateCosineSimilarity(userMessage, baseQuestion) {
+            var userWords = userMessage.toLowerCase().split(' ');
+            var baseWords = baseQuestion.toLowerCase().split(' ');
+
+            var intersection = userWords.filter(word => baseWords.includes(word));
+            var cosineSimilarity = intersection.length / (Math.sqrt(userWords.length) * Math.sqrt(baseWords.length));
+
+            return cosineSimilarity;
+        }
+
+        function appendMessage(sender, message) {
+            var chatbox = document.getElementById('chatbox');
+            var newMessage = document.createElement('div');
+            newMessage.className = sender;
+            newMessage.innerHTML = message;
+            chatbox.appendChild(newMessage);
+            document.getElementById('user-message').value = ''; // Efface le champ de saisie après envoi du message
+        }
+    </script>
+</body>
+</html>
